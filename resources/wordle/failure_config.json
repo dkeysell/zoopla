@@ -1,0 +1,22 @@
+{
+  "start": true,
+  "length_of_word": 5,
+  "max_permutations": 1600,
+  "payload_start": "{ \"language\": \"enUS\", \"fieldvalues\": \"",
+  "payload_end": "\",\"config\":{\"forceUpperCase\":false,\"ignoreIrregularCaps\":false,\"ignoreFirstCaps\":true,\"ignoreNumbers\":true,\"ignoreUpper\": false,\"ignoreDouble\": false, \"ignoreWordsWithNumbers\": true}}",
+  "invalid_letters": "altbdwsf",
+  "valid_letters": [{"letter": "e",
+                     "valid_positions":[4],
+                     "invalid_positions": [1, 2, 3]},
+                    {"letter": "r",
+                     "valid_positions":[2],
+                     "invalid_positions": [1, 3,4]},
+                    {"letter": "o",
+                     "valid_positions":[1],
+                     "invalid_positions": [2,3,4]},
+                    {"letter": "g",
+                     "valid_positions":[3],
+                     "invalid_positions": [1,2,4]}
+                     ],
+  "alphabet": "ceghijkmnopqruvqyz"
+}

@@ -1,0 +1,10 @@
+{
+  "start": true,
+  "length_of_word": 3,
+  "max_permutations": 100,
+  "payload_start": "{ \"language\": \"enUS\", \"fieldvalues\": \"",
+  "payload_end": "\",\"config\":{\"forceUpperCase\":false,\"ignoreIrregularCaps\":false,\"ignoreFirstCaps\":true,\"ignoreNumbers\":true,\"ignoreUpper\": false,\"ignoreDouble\": false, \"ignoreWordsWithNumbers\": true}}",
+  "invalid_letters": "",
+  "valid_letters": [],
+  "alphabet": "abc"
+}
