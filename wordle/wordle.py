@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 
 
 def calculate_permutations(config, words, word, alphabet_index):
@@ -99,14 +100,32 @@ def handle_response(txt, config, words: list):
     suggestions = set()
     for element in spell_response['elements']:
         for error in element['errors']:
-            print('removing: ' + error['word'])
             words.remove(error['word'])
             for suggestion in error['suggestions']:
                 handle_suggestion(config, suggestions, suggestion)
     for word in words:
         suggestions.add(word)
+    ordered_suggestions = []
+    wait = config['wait']
     for suggestion in suggestions:
-        print('suggestion: ' + suggestion)
+        ordered_suggestions.append((suggestion, get_freq(suggestion, wait)))
+    ordered_suggestions = sorted(ordered_suggestions, key=lambda x: x[1])
+    for ordered_suggestion in ordered_suggestions:
+        print(ordered_suggestion[0] + ', frequency: ' + str(ordered_suggestion[1]))
+
+
+def get_freq(term, wait):
+    response = None
+    while True:
+        try:
+            response = requests.get('https://api.datamuse.com/words?sp='+term+'&md=f&max=1').json()
+        except:
+            print('Could not get response. Sleep and retry...')
+            time.sleep(wait)
+            continue
+        break;
+    freq = 0.0 if len(response) == 0 else float(response[0]['tags'][0][2:])
+    return freq
 
 
 if __name__ == "__main__":
